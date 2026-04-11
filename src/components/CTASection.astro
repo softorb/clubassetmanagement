@@ -1,0 +1,122 @@
+---
+import { siteConfig } from '../config/site';
+
+interface Props {
+  headline?: string;
+  subtext?: string;
+  primaryLabel?: string;
+  primaryHref?: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+  variant?: 'light' | 'dark';
+}
+
+const {
+  headline = "Ready to Explore a Partnership?",
+  subtext = `Whether you're actively considering a sale or simply exploring your options, we welcome a confidential conversation. Reach out to learn how ${siteConfig.companyName} can be the right home for your business.`,
+  primaryLabel = "Start a Confidential Conversation",
+  primaryHref = "/contact",
+  secondaryLabel = "View Acquisition Criteria",
+  secondaryHref = "/criteria",
+  variant = 'light',
+} = Astro.props;
+
+const isDark = variant === 'dark';
+---
+
+<section class={`cta-section ${isDark ? 'cta-section--dark' : ''}`}>
+  <div class="container">
+    <div class="cta-section__inner reveal">
+      <div class="cta-section__content">
+        <h2 class="cta-section__title">{headline}</h2>
+        <p class="cta-section__text">{subtext}</p>
+        <div class="cta-section__actions">
+          <a href={primaryHref} class={`btn btn--lg ${isDark ? 'btn--primary' : 'btn--white'}`}>{primaryLabel}</a>
+          {secondaryLabel && (
+            <a href={secondaryHref} class={`btn btn--lg ${isDark ? 'btn--ghost' : 'btn--secondary'}`} style={isDark ? '' : 'color:#fff;border-color:rgba(255,255,255,0.3);'}>{secondaryLabel}</a>
+          )}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-section {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(197, 165, 90, 0.06) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .cta-section--dark {
+    background: var(--color-surface-alt);
+  }
+
+  .cta-section__inner {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-section__title {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    color: #fff;
+    margin-bottom: 1.25rem;
+  }
+
+  .cta-section--dark .cta-section__title {
+    color: var(--color-primary);
+  }
+
+  .cta-section__text {
+    font-size: 1.0625rem;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+  }
+
+  .cta-section--dark .cta-section__text {
+    color: var(--color-text-muted);
+  }
+
+  .cta-section__actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-section__actions .btn--secondary:hover {
+    background: #fff;
+    color: var(--color-primary);
+    border-color: #fff;
+  }
+
+  @media (max-width: 640px) {
+    .cta-section {
+      padding: 4rem 0;
+    }
+
+    .cta-section__actions {
+      flex-direction: column;
+    }
+
+    .cta-section__actions .btn {
+      width: 100%;
+    }
+  }
+</style>

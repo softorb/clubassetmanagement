@@ -1,0 +1,306 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import CTASection from '../components/CTASection.astro';
+import { siteConfig } from '../config/site';
+---
+
+<BaseLayout title="About" description="Learn about Club Asset Management — our philosophy, team, and approach to acquiring and operating exceptional businesses.">
+  <PageHero
+    label="About Us"
+    title="Built on Conviction, Driven by Partnership"
+    subtitle="We are operators and investors who believe the best businesses are built by great people. Our role is to be a permanent, supportive home for their life's work."
+  />
+
+  <!-- Mission Section -->
+  <section class="section">
+    <div class="container">
+      <div class="about__split">
+        <div class="about__content reveal">
+          <span class="section__label">Our Philosophy</span>
+          <h2>Patient Capital, Active Partnership</h2>
+          <p>
+            {siteConfig.companyName} was founded on a simple premise: the best investment outcomes come from
+            acquiring quality businesses and holding them indefinitely. We are not bound by fund cycles,
+            exit timelines, or the pressure to deliver short-term returns at the expense of long-term value.
+          </p>
+          <p>
+            Our approach is rooted in deep respect for the businesses we acquire—their cultures, their
+            people, and the founders who built them. We operate as engaged, hands-on partners who invest
+            permanent capital alongside experienced management teams.
+          </p>
+          <p>
+            Every acquisition begins with a relationship. We take the time to understand not just the
+            financials, but the story behind the business, the aspirations of its leadership, and the
+            opportunities for sustained growth under our stewardship.
+          </p>
+        </div>
+
+        <div class="about__sidebar reveal delay-200">
+          <div class="about__values">
+            <h3 class="about__values-title">Our Core Values</h3>
+            <div class="about__value">
+              <h4>Integrity</h4>
+              <p>We operate with complete transparency. Our word is our bond, and every commitment we make is backed by action.</p>
+            </div>
+            <div class="about__value">
+              <h4>Stewardship</h4>
+              <p>We treat every business as a legacy to be honored and grown—not an asset to be stripped or flipped.</p>
+            </div>
+            <div class="about__value">
+              <h4>Partnership</h4>
+              <p>We succeed when our management teams succeed. Alignment of interests drives everything we do.</p>
+            </div>
+            <div class="about__value">
+              <h4>Discipline</h4>
+              <p>We are selective and rigorous in our analysis, ensuring every acquisition meets our standards for quality and fit.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Track Record Section -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__label">Track Record</span>
+        <h2>Proven Results, Enduring Relationships</h2>
+        <p class="section__subtitle">
+          Our portfolio reflects our commitment to acquiring and operating quality businesses
+          across diverse industries—each one a partnership built on mutual trust.
+        </p>
+      </div>
+
+      <div class="stats__grid reveal delay-200">
+        {siteConfig.stats.map((stat) => (
+          <div class="stats__item">
+            <span class="stats__value">{stat.value}</span>
+            <span class="stats__label">{stat.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Placeholder Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__label">Leadership</span>
+        <h2>Experienced Operators & Investors</h2>
+        <p class="section__subtitle">
+          Our leadership team brings decades of combined experience across private equity,
+          operations, and strategic advisory roles.
+        </p>
+      </div>
+
+      <div class="team__grid">
+        <div class="team__card reveal">
+          <div class="team__avatar">
+            <span>JD</span>
+          </div>
+          <h3 class="team__name">John Doe</h3>
+          <p class="team__role">Managing Partner</p>
+          <p class="team__bio">
+            20+ years of private equity and operational leadership experience across
+            business services, healthcare, and industrial sectors.
+          </p>
+        </div>
+
+        <div class="team__card reveal delay-100">
+          <div class="team__avatar">
+            <span>JS</span>
+          </div>
+          <h3 class="team__name">Jane Smith</h3>
+          <p class="team__role">Partner, Acquisitions</p>
+          <p class="team__bio">
+            Former investment banker with extensive M&A experience. Leads transaction
+            sourcing, structuring, and execution for the firm.
+          </p>
+        </div>
+
+        <div class="team__card reveal delay-200">
+          <div class="team__avatar">
+            <span>RJ</span>
+          </div>
+          <h3 class="team__name">Robert Johnson</h3>
+          <p class="team__role">Partner, Operations</p>
+          <p class="team__bio">
+            Seasoned operator with C-suite experience across portfolio companies.
+            Drives value creation and operational improvement initiatives.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    headline="Let's Start a Conversation"
+    subtext="If you're a business owner exploring your options, we'd welcome the opportunity to discuss how we can be the right partner for your business."
+    primaryLabel="Get in Touch"
+    secondaryLabel=""
+  />
+</BaseLayout>
+
+<style>
+  .about__split {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about__content p {
+    font-size: 1.0625rem;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+  }
+
+  .about__content h2 {
+    margin: 0.5rem 0 1.5rem;
+  }
+
+  .about__values {
+    background: var(--color-surface-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 2rem;
+  }
+
+  .about__values-title {
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .about__value {
+    margin-bottom: 1.5rem;
+  }
+
+  .about__value:last-child {
+    margin-bottom: 0;
+  }
+
+  .about__value h4 {
+    font-size: 0.9375rem;
+    color: var(--color-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  .about__value p {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  /* Stats */
+  .stats__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .stats__item {
+    text-align: center;
+    padding: 2rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+  }
+
+  .stats__value {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.25rem;
+  }
+
+  .stats__label {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+  }
+
+  /* Team */
+  .team__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .team__card {
+    text-align: center;
+    padding: 2.5rem 2rem;
+    background: var(--color-surface-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-base);
+  }
+
+  .team__card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+
+  .team__avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.25rem;
+  }
+
+  .team__avatar span {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    letter-spacing: 0.05em;
+  }
+
+  .team__name {
+    font-size: 1.125rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .team__role {
+    font-size: 0.8125rem;
+    color: var(--color-accent);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+  }
+
+  .team__bio {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 900px) {
+    .about__split {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .stats__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .team__grid {
+      grid-template-columns: 1fr;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  }
+</style>

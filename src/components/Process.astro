@@ -1,0 +1,134 @@
+---
+const steps = [
+  {
+    step: "01",
+    title: "Initial Conversation",
+    description: "A confidential, no-obligation discussion to understand your business, goals, and timeline. We listen first.",
+  },
+  {
+    step: "02",
+    title: "Preliminary Review",
+    description: "We evaluate key financial and operational data under NDA to determine fit and provide an initial indication of value.",
+  },
+  {
+    step: "03",
+    title: "Letter of Intent",
+    description: "Upon mutual interest, we issue a clear, fair LOI outlining proposed terms, structure, and timeline—typically within 2 weeks.",
+  },
+  {
+    step: "04",
+    title: "Due Diligence",
+    description: "A thorough but efficient confirmatory process. We respect your time and minimize disruption to daily operations.",
+  },
+  {
+    step: "05",
+    title: "Close & Transition",
+    description: "We finalize documentation, fund the transaction, and execute a thoughtful transition plan tailored to your preferences.",
+  },
+];
+---
+
+<section class="section section--dark" id="process">
+  <div class="container">
+    <div class="section__header reveal">
+      <span class="section__label">Our Process</span>
+      <h2>How We Work Together</h2>
+      <p class="section__subtitle">
+        Our acquisition process is designed to be straightforward, respectful, and efficient.
+        From first conversation to close, we maintain complete transparency.
+      </p>
+    </div>
+
+    <div class="process__timeline">
+      {steps.map((s, i) => (
+        <div class="process__step reveal" style={`transition-delay: ${i * 100}ms`}>
+          <div class="process__step-marker">
+            <span class="process__step-number">{s.step}</span>
+            {i < steps.length - 1 && <div class="process__step-line"></div>}
+          </div>
+          <div class="process__step-content">
+            <h3 class="process__step-title">{s.title}</h3>
+            <p class="process__step-desc">{s.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .process__timeline {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .process__step {
+    display: flex;
+    gap: 2rem;
+    position: relative;
+  }
+
+  .process__step-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .process__step-number {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-accent);
+    color: var(--color-primary);
+    font-weight: 800;
+    font-size: 0.875rem;
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .process__step-line {
+    width: 2px;
+    flex: 1;
+    background: rgba(255, 255, 255, 0.1);
+    min-height: 40px;
+  }
+
+  .process__step-content {
+    padding-bottom: 2.5rem;
+  }
+
+  .process__step:last-child .process__step-content {
+    padding-bottom: 0;
+  }
+
+  .process__step-title {
+    font-size: 1.25rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+
+  .process__step-desc {
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 640px) {
+    .process__step {
+      gap: 1.25rem;
+    }
+
+    .process__step-number {
+      width: 40px;
+      height: 40px;
+      font-size: 0.75rem;
+    }
+  }
+</style>

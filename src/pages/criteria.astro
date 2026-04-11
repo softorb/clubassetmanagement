@@ -1,0 +1,352 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import CTASection from '../components/CTASection.astro';
+import { siteConfig } from '../config/site';
+
+const { acquisitionCriteria } = siteConfig;
+
+const idealAttributes = [
+  "Strong, recurring revenue with demonstrated stability",
+  "Defensible market position or competitive advantage",
+  "Experienced management team willing to stay post-close",
+  "Diversified customer base with limited concentration risk",
+  "History of consistent profitability and cash flow generation",
+  "Clear opportunities for organic or strategic growth",
+  "Established brand reputation within its market",
+  "Scalable operations and systems in place",
+];
+
+const dealTypes = [
+  {
+    title: "Full Acquisitions",
+    desc: "Complete ownership transitions for founders ready to exit. We provide full liquidity while ensuring a seamless transition for employees and customers.",
+    icon: "full",
+  },
+  {
+    title: "Majority Recapitalizations",
+    desc: "Partial liquidity solutions that allow founders to monetize a significant portion of their equity while retaining meaningful upside alongside our capital.",
+    icon: "recap",
+  },
+  {
+    title: "Management Buyouts",
+    desc: "Supporting talented management teams in acquiring businesses from existing owners, providing both capital and strategic resources for a successful transition.",
+    icon: "mbo",
+  },
+  {
+    title: "Succession Transitions",
+    desc: "Structured succession solutions for owners approaching retirement who want to ensure their business thrives under committed, long-term ownership.",
+    icon: "succession",
+  },
+];
+---
+
+<BaseLayout title="Acquisition Criteria" description="Explore Club Asset Management's acquisition criteria, target industries, and deal structures. We acquire established businesses with $2M–$50M in revenue.">
+  <PageHero
+    label="Acquisition Criteria"
+    title="What We Look For"
+    subtitle="We seek established, profitable businesses with strong fundamentals and proven management. Our flexible approach accommodates a range of industries, sizes, and transaction structures."
+  />
+
+  <!-- Key Metrics -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__label">Financial Parameters</span>
+        <h2>Our Investment Profile</h2>
+      </div>
+
+      <div class="metrics__grid">
+        <div class="metrics__card reveal">
+          <span class="metrics__card-label">Annual Revenue</span>
+          <span class="metrics__card-value">{acquisitionCriteria.revenue}</span>
+          <p class="metrics__card-desc">Established businesses with a track record of consistent revenue generation.</p>
+        </div>
+        <div class="metrics__card reveal delay-100">
+          <span class="metrics__card-label">EBITDA</span>
+          <span class="metrics__card-value">{acquisitionCriteria.ebitda}</span>
+          <p class="metrics__card-desc">Demonstrated, sustainable earnings with identifiable paths to continued growth.</p>
+        </div>
+        <div class="metrics__card reveal delay-200">
+          <span class="metrics__card-label">Geography</span>
+          <span class="metrics__card-value">{acquisitionCriteria.geographies}</span>
+          <p class="metrics__card-desc">Businesses headquartered and primarily operating within North America.</p>
+        </div>
+        <div class="metrics__card reveal delay-300">
+          <span class="metrics__card-label">Enterprise Value</span>
+          <span class="metrics__card-value">$5M – $75M</span>
+          <p class="metrics__card-desc">Flexible valuation range based on growth profile, market position, and quality of earnings.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__label">Target Sectors</span>
+        <h2>Industries of Focus</h2>
+        <p class="section__subtitle">
+          We focus on sectors where we have deep operational expertise and can add meaningful
+          value beyond capital alone.
+        </p>
+      </div>
+
+      <div class="industries__grid">
+        {acquisitionCriteria.industries.map((industry, i) => (
+          <div class="industries__card reveal" style={`transition-delay: ${i * 80}ms`}>
+            <div class="industries__card-accent"></div>
+            <h3 class="industries__card-title">{industry}</h3>
+            <p class="industries__card-desc">
+              Established operators with recurring revenue, strong customer relationships, and scalable models.
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Ideal Attributes -->
+  <section class="section">
+    <div class="container">
+      <div class="ideal__layout">
+        <div class="ideal__content reveal">
+          <span class="section__label">Ideal Business Attributes</span>
+          <h2>What Makes a Strong Fit</h2>
+          <p class="section__subtitle" style="text-align:left; margin-top:1rem;">
+            While no business is identical, we've found that our strongest partnerships share
+            a common set of characteristics. These are the attributes we seek in every acquisition.
+          </p>
+        </div>
+
+        <div class="ideal__list reveal delay-200">
+          {idealAttributes.map((attr, i) => (
+            <div class="ideal__item">
+              <svg class="ideal__check" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>{attr}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Deal Types -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__label">Transaction Structures</span>
+        <h2>Flexible Deal Structures</h2>
+        <p class="section__subtitle">
+          We tailor every transaction to meet the unique goals of each business owner.
+          Our flexible approach means there's no one-size-fits-all template.
+        </p>
+      </div>
+
+      <div class="deals__grid">
+        {dealTypes.map((deal, i) => (
+          <div class="deals__card reveal" style={`transition-delay: ${i * 100}ms`}>
+            <h3 class="deals__card-title">{deal.title}</h3>
+            <p class="deals__card-desc">{deal.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    headline="Does Your Business Fit Our Criteria?"
+    subtext="Even if your business doesn't match every parameter above, we encourage you to reach out. Many of our best acquisitions started as conversations."
+    primaryLabel="Submit Your Business"
+    secondaryLabel=""
+  />
+</BaseLayout>
+
+<style>
+  /* Metrics */
+  .metrics__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .metrics__card {
+    background: var(--color-surface-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 2rem;
+    text-align: center;
+    transition: all var(--transition-base);
+  }
+
+  .metrics__card:hover {
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+  }
+
+  .metrics__card-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted);
+    margin-bottom: 0.75rem;
+  }
+
+  .metrics__card-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+  }
+
+  .metrics__card-desc {
+    font-size: 0.8125rem;
+    color: var(--color-text-light);
+    line-height: 1.6;
+  }
+
+  /* Industries */
+  .industries__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .industries__card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition-base);
+  }
+
+  .industries__card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+
+  .industries__card-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--color-accent);
+    transform: scaleX(0);
+    transition: transform var(--transition-base);
+    transform-origin: left;
+  }
+
+  .industries__card:hover .industries__card-accent {
+    transform: scaleX(1);
+  }
+
+  .industries__card-title {
+    font-size: 1.0625rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .industries__card-desc {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  /* Ideal Attributes */
+  .ideal__layout {
+    display: grid;
+    grid-template-columns: 1fr 1.25fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .ideal__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .ideal__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.9375rem;
+    color: var(--color-text);
+    line-height: 1.6;
+    padding: 0.75rem 1rem;
+    background: var(--color-surface-alt);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border);
+  }
+
+  .ideal__check {
+    flex-shrink: 0;
+    color: var(--color-accent);
+    margin-top: 2px;
+  }
+
+  /* Deal Types */
+  .deals__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .deals__card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 2rem;
+    transition: all var(--transition-base);
+  }
+
+  .deals__card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+
+  .deals__card-title {
+    font-size: 1.125rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-primary);
+  }
+
+  .deals__card-desc {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 1024px) {
+    .metrics__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .industries__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 900px) {
+    .ideal__layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .metrics__grid,
+    .industries__grid,
+    .deals__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

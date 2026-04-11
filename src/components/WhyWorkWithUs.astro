@@ -1,0 +1,125 @@
+---
+const advantages = [
+  {
+    number: "01",
+    title: "Permanent Capital Structure",
+    description: "Unlike private equity funds with fixed timelines, we invest with a long-term horizon. We acquire to hold and grow—your business will never be flipped for a quick return.",
+  },
+  {
+    number: "02",
+    title: "Operational Expertise",
+    description: "Our team brings decades of operating experience across diverse industries. We actively support management with strategic guidance, capital allocation, and operational improvements.",
+  },
+  {
+    number: "03",
+    title: "Founder-Centric Approach",
+    description: "We understand the emotional weight of selling a business you built. Our process is designed around your priorities—whether that's legacy preservation, employee retention, or continued involvement.",
+  },
+  {
+    number: "04",
+    title: "Certainty of Close",
+    description: "We move with conviction and transparency. With committed capital and seasoned deal execution, we eliminate unnecessary delays and provide deal certainty from LOI to close.",
+  },
+  {
+    number: "05",
+    title: "Flexible Transaction Structures",
+    description: "Every business is unique. We tailor deal structures to meet your specific goals—whether full acquisition, majority recap, management buyout, or structured succession plan.",
+  },
+  {
+    number: "06",
+    title: "Trusted Stewardship",
+    description: "We measure success not just in financial terms, but in the continued growth, cultural integrity, and employee satisfaction of every business we acquire. Your legacy is our priority.",
+  },
+];
+---
+
+<section class="section" id="why-us">
+  <div class="container">
+    <div class="why__layout">
+      <div class="why__header reveal">
+        <span class="section__label">The Difference</span>
+        <h2>Why Business Owners Choose Us</h2>
+        <p class="section__subtitle" style="text-align:left; margin-top:1rem;">
+          We are not a typical buyer. Our approach is built on partnership, transparency, and a genuine commitment to the businesses and people we work with.
+        </p>
+        <a href="/about" class="btn btn--primary mt-4">Learn About Our Approach</a>
+      </div>
+
+      <div class="why__grid">
+        {advantages.map((adv) => (
+          <div class="why__item reveal">
+            <span class="why__number">{adv.number}</span>
+            <div>
+              <h3 class="why__title">{adv.title}</h3>
+              <p class="why__desc">{adv.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .why__layout {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .why__header {
+    position: sticky;
+    top: 120px;
+  }
+
+  .why__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .why__item {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-base);
+  }
+
+  .why__item:hover {
+    background: var(--color-surface-alt);
+  }
+
+  .why__number {
+    flex-shrink: 0;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    padding-top: 0.125rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .why__title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .why__desc {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 900px) {
+    .why__layout {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .why__header {
+      position: static;
+    }
+  }
+</style>

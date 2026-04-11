@@ -1,0 +1,188 @@
+---
+import { siteConfig } from '../config/site';
+---
+
+<section class="hero">
+  <div class="hero__bg">
+    <div class="hero__gradient"></div>
+    <div class="hero__pattern"></div>
+  </div>
+
+  <div class="container hero__inner">
+    <div class="hero__content animate-fade-in-up">
+      <span class="hero__label">{siteConfig.companyTagline}</span>
+      <h1 class="hero__title">
+        We Acquire & Operate<br />
+        <span class="hero__title-accent">Exceptional Businesses</span>
+      </h1>
+      <p class="hero__subtitle">
+        {siteConfig.companyName} provides permanent capital solutions for established businesses.
+        We partner with founders and operators seeking a trusted acquirer committed to preserving
+        their legacy while unlocking new growth.
+      </p>
+      <div class="hero__actions">
+        <a href="/contact" class="btn btn--primary btn--lg">Discuss an Acquisition</a>
+        <a href="/criteria" class="btn btn--secondary btn--lg">View Our Criteria</a>
+      </div>
+    </div>
+
+    <div class="hero__stats animate-fade-in-up delay-300">
+      {siteConfig.stats.map((stat) => (
+        <div class="hero__stat">
+          <span class="hero__stat-value">{stat.value}</span>
+          <span class="hero__stat-label">{stat.label}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding-top: 80px;
+  }
+
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--color-primary) 0%, #0F2440 50%, var(--color-secondary) 100%);
+  }
+
+  .hero__gradient {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(197, 165, 90, 0.08) 0%, transparent 60%);
+  }
+
+  .hero__pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero__inner {
+    position: relative;
+    z-index: 1;
+    padding: 4rem 0 3rem;
+  }
+
+  .hero__content {
+    max-width: 720px;
+  }
+
+  .hero__label {
+    display: inline-block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 1.5rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(197, 165, 90, 0.3);
+    border-radius: var(--radius-sm);
+  }
+
+  .hero__title {
+    font-size: clamp(2.5rem, 5.5vw, 4rem);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.03em;
+  }
+
+  .hero__title-accent {
+    color: var(--color-accent);
+  }
+
+  .hero__subtitle {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.8;
+    max-width: 580px;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero__actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .hero__actions .btn--secondary {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .hero__actions .btn--secondary:hover {
+    background: #fff;
+    color: var(--color-primary);
+    border-color: #fff;
+  }
+
+  .hero__stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 5rem;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .hero__stat {
+    text-align: left;
+  }
+
+  .hero__stat-value {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.25rem;
+  }
+
+  .hero__stat-label {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+  }
+
+  @media (max-width: 900px) {
+    .hero__stats {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero {
+      min-height: auto;
+      padding: 120px 0 60px;
+    }
+
+    .hero__actions {
+      flex-direction: column;
+    }
+
+    .hero__actions .btn {
+      width: 100%;
+    }
+
+    .hero__stats {
+      margin-top: 3rem;
+      padding-top: 2rem;
+    }
+  }
+</style>
