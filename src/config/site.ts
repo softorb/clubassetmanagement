@@ -15,13 +15,13 @@ export const siteConfig = {
 
   // ─── Contact ────────────────────────────────────────
   contact: {
-    email: "acquisitions@clubassetmanagement.com",
-    phone: "+1 (212) 555-0184",
+    email: "info@clubassetmanagement.com",
+    phone: "(917) 230-0000",
     address: {
-      street: "One Vanderbilt Avenue, Suite 4500",
-      city: "New York",
+      street: "1342 Military Rd",
+      city: "Niagara Falls",
       state: "NY",
-      zip: "10017",
+      zip: "14304",
       country: "United States",
     },
   },
@@ -53,8 +53,8 @@ export const siteConfig = {
       { label: "Contact", href: "/contact" },
     ],
     legal: [
-      { label: "Privacy Policy", href: "/privacy" },
-      { label: "Terms of Service", href: "#" },
+      { label: "Privacy Policy", href: "/privacy-policy" },
+      { label: "Terms & Conditions", href: "/terms-and-conditions" },
       { label: "Disclosures", href: "#" },
     ],
   },

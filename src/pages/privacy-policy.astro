@@ -1,0 +1,158 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { siteConfig } from '../config/site';
+
+const effectiveDate = "April 10, 2026";
+---
+
+<BaseLayout title="Privacy Policy" description="Club Asset Management, LLC privacy policy — how we collect, use, and protect your personal information.">
+  <PageHero
+    label="Legal"
+    title="Privacy Policy"
+    subtitle={`Effective Date: ${effectiveDate}`}
+  />
+
+  <section class="section">
+    <div class="container container--narrow">
+      <div class="legal-content">
+        <p>
+          Club Asset Management, LLC ("Company," "we," "our," or "us") respects your privacy and is committed
+          to protecting the personal information you provide to us.
+        </p>
+
+        <h2>Information We Collect</h2>
+        <p>We may collect personal information including but not limited to:</p>
+        <ul>
+          <li>Name</li>
+          <li>Phone Number</li>
+          <li>Email Address</li>
+          <li>Property Address</li>
+          <li>Inquiry Details</li>
+          <li>Communication Preferences</li>
+        </ul>
+
+        <h2>How We Use Your Information</h2>
+        <p>We use collected information to:</p>
+        <ul>
+          <li>Respond to inquiries</li>
+          <li>Provide real estate consultation services</li>
+          <li>Communicate regarding property acquisition opportunities</li>
+          <li>Send transactional and follow-up communications</li>
+          <li>Improve our services and website</li>
+        </ul>
+
+        <h2>SMS Communications</h2>
+        <p>
+          By submitting your phone number through our website contact forms, property inquiry forms, consultation
+          requests, or other direct communications with Club Asset Management, LLC, you consent to receive SMS
+          text messages from us regarding your inquiry, property discussions, and related real estate services.
+        </p>
+        <ul>
+          <li>Message frequency may vary</li>
+          <li>Message and data rates may apply</li>
+          <li>Reply STOP to opt out</li>
+          <li>Reply HELP for assistance</li>
+        </ul>
+
+        <h2>SMS Consent</h2>
+        <p>
+          SMS consent is not shared with third parties or affiliates for marketing purposes.
+        </p>
+
+        <h2>Information Sharing</h2>
+        <p>
+          We do not sell, rent, or trade your personal information. We may share information only with service
+          providers or partners necessary to operate our business and provide services.
+        </p>
+
+        <h2>Data Security</h2>
+        <p>
+          We implement commercially reasonable safeguards to protect your personal information.
+        </p>
+
+        <h2>Cookies / Analytics</h2>
+        <p>
+          Our website may use cookies and analytics tools to improve user experience and monitor site performance.
+        </p>
+
+        <h2>Your Rights</h2>
+        <p>
+          You may request access, correction, or deletion of your personal information by contacting us.
+        </p>
+
+        <h2>Contact Information</h2>
+        <p>
+          <strong>Club Asset Management, LLC</strong><br />
+          Email: <a href="mailto:info@clubassetmanagement.com">info@clubassetmanagement.com</a><br />
+          Website: <a href="https://clubassetmanagement.com">https://clubassetmanagement.com</a>
+        </p>
+
+        <h2>Changes to This Policy</h2>
+        <p>
+          We may update this Privacy Policy periodically. Continued use of our website constitutes acceptance
+          of any revised policy.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-content {
+    font-size: 0.9375rem;
+    line-height: 1.8;
+    color: var(--color-text-muted);
+  }
+
+  .legal-content h2 {
+    font-size: 1.375rem;
+    margin: 2.5rem 0 1rem;
+    color: var(--color-primary);
+  }
+
+  .legal-content h2:first-child {
+    margin-top: 0;
+  }
+
+  .legal-content p {
+    margin-bottom: 1rem;
+  }
+
+  .legal-content ul {
+    list-style: none;
+    margin-bottom: 1.25rem;
+    padding-left: 0;
+  }
+
+  .legal-content ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .legal-content ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 6px;
+    height: 6px;
+    background: var(--color-accent);
+    border-radius: 50%;
+  }
+
+  .legal-content a {
+    color: var(--color-accent);
+    transition: opacity var(--transition-fast);
+  }
+
+  .legal-content a:hover {
+    opacity: 0.8;
+  }
+
+  .legal-content strong {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+</style>
