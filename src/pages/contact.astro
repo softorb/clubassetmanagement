@@ -18,9 +18,9 @@ const { contact, companyName } = siteConfig;
       <div class="contact__layout">
         <!-- Form -->
         <div class="contact__form-wrapper reveal">
-          <h2 class="contact__form-title">Send Us a Message</h2>
+          <h2 class="contact__form-title">Submit Your Property Inquiry</h2>
           <p class="contact__form-subtitle">
-            All inquiries are treated with the utmost confidentiality. We typically respond within one business day.
+            Submit your property details and our team will follow up to discuss your options confidentially.
           </p>
 
           <form class="contact__form" id="contact-form" action="#" method="POST">
@@ -87,6 +87,14 @@ const { contact, companyName } = siteConfig;
                 <input type="checkbox" name="nda" />
                 <span class="form-checkbox__mark"></span>
                 <span class="form-checkbox__text">I would like to execute an NDA before sharing additional details.</span>
+              </label>
+            </div>
+
+            <div class="form-group">
+              <label class="form-checkbox">
+                <input type="checkbox" name="smsConsent" required />
+                <span class="form-checkbox__mark"></span>
+                <span class="form-checkbox__text">I consent to receive SMS from Club Asset Management, LLC regarding my inquiry. Message and data rates may apply. Reply STOP to opt out.</span>
               </label>
             </div>
 
