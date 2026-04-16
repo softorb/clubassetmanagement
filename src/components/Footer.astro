@@ -17,7 +17,7 @@ const { contact, footerLinks, socialLinks, companyName } = siteConfig;
         <p class="footer__description">
           Strategic acquisitions and permanent capital solutions for established businesses seeking a trusted, long-term partner.
         </p>
-        <div class="footer__social">
+        {socialLinks.length > 0 && <div class="footer__social">
           {socialLinks.map((link) => (
             <a href={link.href} target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label={link.platform}>
               {link.icon === 'linkedin' ? (
@@ -27,7 +27,7 @@ const { contact, footerLinks, socialLinks, companyName } = siteConfig;
               )}
             </a>
           ))}
-        </div>
+        </div>}
       </div>
 
       <!-- Company Links -->

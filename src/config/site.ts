@@ -60,10 +60,7 @@ export const siteConfig = {
   },
 
   // ─── Social Links ──────────────────────────────────
-  socialLinks: [
-    { platform: "LinkedIn", href: "https://linkedin.com/company/clubassetmanagement", icon: "linkedin" },
-    { platform: "Twitter", href: "https://twitter.com/clubassetmgmt", icon: "twitter" },
-  ],
+  socialLinks: [],
 
   // ─── Design Tokens ─────────────────────────────────
   colors: {
