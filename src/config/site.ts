@@ -79,8 +79,8 @@ export const siteConfig = {
 
   // ─── Acquisition Criteria ──────────────────────────
   acquisitionCriteria: {
-    revenue: "$2M – $50M",
-    ebitda: "$500K – $10M",
+    revenue: "Under $100K – $10M+",
+    ebitda: "$25K – $2M",
     industries: [
       "Business Services",
       "Healthcare Services",
