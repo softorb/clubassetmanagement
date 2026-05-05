@@ -1,0 +1,270 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteConfig } from '../config/site';
+---
+
+<BaseLayout
+  title="Thank You"
+  description="Thank you for submitting your property inquiry. Our team will review your details and follow up shortly."
+>
+  <section class="thankyou">
+    <div class="thankyou__bg"></div>
+    <div class="container thankyou__inner">
+      <div class="thankyou__card animate-fade-in-up">
+        <div class="thankyou__icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+
+        <span class="thankyou__label">Inquiry Submitted</span>
+        <h1 class="thankyou__title">Thank You for Reaching Out</h1>
+        <p class="thankyou__subtitle">
+          Your property inquiry has been received. A member of our acquisitions team
+          will review your details and follow up within one business day to discuss
+          your options confidentially.
+        </p>
+
+        <div class="thankyou__steps">
+          <h3 class="thankyou__steps-title">What Happens Next</h3>
+          <ol class="thankyou__steps-list">
+            <li>
+              <strong>Review.</strong> We carefully evaluate every inquiry against our
+              acquisition criteria.
+            </li>
+            <li>
+              <strong>Initial Conversation.</strong> If there's a potential fit, we'll
+              reach out by phone or email to schedule a confidential discussion.
+            </li>
+            <li>
+              <strong>Next Steps.</strong> Together we'll explore whether a partnership
+              makes sense for both parties.
+            </li>
+          </ol>
+        </div>
+
+        <div class="thankyou__contact">
+          <p>
+            Need to reach us directly? Email
+            <a href={`mailto:${siteConfig.contact.email}`}>{siteConfig.contact.email}</a>
+            or call <a href={`tel:${siteConfig.contact.phone}`}>{siteConfig.contact.phone}</a>.
+          </p>
+        </div>
+
+        <div class="thankyou__actions">
+          <a href="/" class="btn btn--primary btn--lg">Return to Home</a>
+          <a href="/criteria" class="btn btn--secondary btn--lg">View Acquisition Criteria</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Conversion tracking script -->
+  <script is:inline>
+    // Fire a custom event for analytics platforms (GA4, FB Pixel, etc.)
+    if (typeof window !== 'undefined') {
+      // Google Analytics 4 / GTM
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'generate_lead', {
+          event_category: 'contact',
+          event_label: 'property_inquiry',
+        });
+      }
+      // dataLayer push for Google Tag Manager
+      if (window.dataLayer) {
+        window.dataLayer.push({
+          event: 'form_submission',
+          form_name: 'property_inquiry',
+          form_location: 'contact_page',
+        });
+      }
+      // Facebook Pixel
+      if (typeof window.fbq === 'function') {
+        window.fbq('track', 'Lead');
+      }
+    }
+  </script>
+</BaseLayout>
+
+<style>
+  .thankyou {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 9rem 0 5rem;
+    overflow: hidden;
+  }
+
+  .thankyou__bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at top, rgba(197, 165, 90, 0.08) 0%, transparent 60%),
+      var(--color-surface-alt);
+  }
+
+  .thankyou__inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .thankyou__card {
+    max-width: 720px;
+    margin: 0 auto;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 4rem 3rem;
+    text-align: center;
+    box-shadow: var(--shadow-xl);
+  }
+
+  .thankyou__icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.75rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #10B981, #059669);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.25);
+  }
+
+  .thankyou__label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+  }
+
+  .thankyou__title {
+    font-size: clamp(1.875rem, 4vw, 2.5rem);
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+  }
+
+  .thankyou__subtitle {
+    font-size: 1.0625rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    max-width: 560px;
+    margin: 0 auto 2.5rem;
+  }
+
+  .thankyou__steps {
+    text-align: left;
+    background: var(--color-surface-alt);
+    border-radius: var(--radius-md);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid var(--color-border);
+  }
+
+  .thankyou__steps-title {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted);
+    margin-bottom: 1.25rem;
+    text-align: center;
+  }
+
+  .thankyou__steps-list {
+    list-style: none;
+    counter-reset: step;
+    padding: 0;
+    margin: 0;
+  }
+
+  .thankyou__steps-list li {
+    counter-increment: step;
+    position: relative;
+    padding-left: 3rem;
+    margin-bottom: 1.25rem;
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  .thankyou__steps-list li:last-child {
+    margin-bottom: 0;
+  }
+
+  .thankyou__steps-list li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: -2px;
+    width: 32px;
+    height: 32px;
+    background: var(--color-primary);
+    color: var(--color-accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.8125rem;
+  }
+
+  .thankyou__steps-list strong {
+    color: var(--color-primary);
+    font-weight: 700;
+  }
+
+  .thankyou__contact {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+  }
+
+  .thankyou__contact a {
+    color: var(--color-accent);
+    font-weight: 600;
+    transition: opacity var(--transition-fast);
+  }
+
+  .thankyou__contact a:hover {
+    opacity: 0.8;
+  }
+
+  .thankyou__actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 640px) {
+    .thankyou {
+      padding: 7rem 0 3rem;
+    }
+
+    .thankyou__card {
+      padding: 2.5rem 1.5rem;
+    }
+
+    .thankyou__steps {
+      padding: 1.5rem 1.25rem;
+    }
+
+    .thankyou__steps-list li {
+      padding-left: 2.5rem;
+    }
+
+    .thankyou__actions {
+      flex-direction: column;
+    }
+
+    .thankyou__actions .btn {
+      width: 100%;
+    }
+  }
+</style>

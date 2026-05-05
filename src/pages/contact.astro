@@ -262,12 +262,9 @@ const { contact, companyName } = siteConfig;
           const result = await res.json().catch(() => ({}));
 
           if (res.ok && result.ok) {
-            showStatus(
-              'success',
-              result.message || "Thank you! Your inquiry has been received. We'll be in touch within one business day.",
-              'Inquiry submitted'
-            );
-            form.reset();
+            // Redirect to dedicated thank-you page for clarity and conversion tracking
+            window.location.href = '/thank-you/';
+            return;
           } else {
             showStatus(
               'error',
